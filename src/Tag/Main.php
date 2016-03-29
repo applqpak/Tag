@@ -29,12 +29,27 @@
 
     @mkdir($this->dataPath());
 
-    $this->cfg = new Config($this->dataPath() . "config.yml", Config::YAML, array("notifications" => "off"));
+    $this->cfg = new Config($this->dataPath() . "config.yml", Config::YAML, array("notifications" => "off", "message-replace" => "on"));
 
   }
 
   public function onChat(PlayerChatEvent $event)
   {
+
+    $player = $event->getPlayer();
+
+    $player_name = $player->getName();
+
+    $message = $event->getMessage();
+
+    $notifications = $this->cfg->get("notifications");
+
+    if(stripos($message, "@"))
+    {
+
+      
+
+    }
 
   }
 
