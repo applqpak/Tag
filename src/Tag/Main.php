@@ -79,7 +79,7 @@
                 if($tagged_player === $tagged_player_name)
                 {
 
-                  $tagged_player->sendMessage(str_replace(array("{name}"), array($player_name)));
+                  $tagged_player->sendMessage(str_replace(array("{name}"), array($player_name), $message_replace));
 
                 }
 
