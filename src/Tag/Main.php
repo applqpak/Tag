@@ -44,10 +44,29 @@
 
     $notifications = $this->cfg->get("notifications");
 
+    $message_replace = $this->cfg->get("message-replace");
+
     if(stripos($message, "@"))
     {
 
-      
+      if($message_replace === "on")
+      {
+
+        if(preg_match("/@.*/", $message, $matches))
+        {
+
+          if(in_array("@" . $player_name, $matches))
+          {
+
+            $message = str_replace("@" . $player_name, "", $message);
+
+            $event->setMessage($message);
+
+          }
+
+        }
+
+      }
 
     }
 
