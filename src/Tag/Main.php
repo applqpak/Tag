@@ -25,6 +25,12 @@
   public function onEnable()
   {
 
+    $this->server()->getPluginManager()->registerEvents($this, $this);
+
+    @mkdir($this->dataPath());
+
+    $this->cfg = new Config($this->dataPath() . "config.yml", Config::YAML, array("notifications" => "off"));
+
   }
 
   public function onChat(PlayerChatEvent $event)
