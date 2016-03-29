@@ -46,7 +46,7 @@
 
     $message_replace = $this->cfg->get("message-replace");
 
-    if(stripos($message, "@"))
+    if(stripos($message, "@") !== false)
     {
 
       if($message_replace === "on")
