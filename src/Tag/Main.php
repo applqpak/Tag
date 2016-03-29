@@ -63,6 +63,27 @@
             $event->setMessage($message);
 
           }
+          else
+          {
+
+            $tagged_player_name = str_replace("@", "", $message);
+
+            foreach($this->server()->getOnlinePlayers() as $key => $value)
+            {
+
+              if($notifications === "on")
+              {
+
+                if($value === $tagged_player_name)
+                {
+
+                }
+
+              }
+
+            }
+
+          }
 
         }
 
