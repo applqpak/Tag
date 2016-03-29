@@ -29,7 +29,7 @@
 
     @mkdir($this->dataPath());
 
-    $this->cfg = new Config($this->dataPath() . "config.yml", Config::YAML, array("notifications" => "off", "message-replace" => "on"));
+    $this->cfg = new Config($this->dataPath() . "config.yml", Config::YAML, array("notifications" => "off", "message-replace" => "on", "tagged_message" => "You have been tagged by {name}"));
 
   }
 
@@ -71,11 +71,15 @@
             foreach($this->server()->getOnlinePlayers() as $key => $value)
             {
 
+              $tagged_player = $value;
+
               if($notifications === "on")
               {
 
-                if($value === $tagged_player_name)
+                if($tagged_player === $tagged_player_name)
                 {
+
+                  $tagged_player->sendMessage(str_replace(array("{name}"), array($player_name));
 
                 }
 
